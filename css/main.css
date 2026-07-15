@@ -1,0 +1,693 @@
+/* ==========================================================================
+   Main Stylesheet - mtm6201-midterm (Pixel-Perfect Alignment)
+   ========================================================================== */
+
+/* 1. CSS Custom Variables & Design Tokens */
+:root {
+  /* Exact Colors Specified */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gold: #d69e3d;
+  --color-gold-hover: #966f2c;
+  --color-bg-light: #f3f0e9; /* Global Background */
+  
+  /* Strict Typography Assignments */
+  --font-headings: 'Lato', sans-serif; /* Headings and Navigation */
+  --font-body: 'Karla', sans-serif;     /* Body Text and Buttons */
+  
+  --max-width: 1200px;
+  --transition-speed: 0.3s;
+  --transition-curve: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body); /* Karla */
+  background-color: var(--color-bg-light); /* #f3f0e9 */
+  color: var(--color-black);               /* #000000 */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   RESPONSIVE TYPESCALES & LAYOUT SPECS
+   ========================================================================== */
+
+/* Mobile Breakpoint Baseline Rules (Widths < 768px) */
+h1, h2, h3 {
+  font-family: var(--font-headings); /* Lato */
+  font-weight: 400; /* Regular lightweight structure matching the UI mockup */
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: 2rem; }     /* 32px Mobile */
+h2 { font-size: 1.75rem; }  /* 28px Mobile */
+h3 { font-size: 1.375rem; } /* 22px Mobile */
+
+p { 
+  font-family: var(--font-body); /* Karla */
+  font-size: 1rem;          /* 16px Mobile */
+  font-weight: 300;
+  line-height: 1.65; 
+  margin-bottom: 1.5rem; 
+}
+
+/* Skip-Link Accessibility Navigation */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 1000;
+  transition: top var(--transition-speed) var(--transition-curve);
+}
+
+.skip-link:focus {
+  top: 20px;
+  outline: 2px solid var(--color-black);
+}
+
+/* Container Spacing Wrappers */
+.wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.text-center { text-align: center; }
+.text-white { color: var(--color-white); }
+
+/* Elegant Gold Tracked Subtitles */
+.gold-label {
+  display: block;
+  font-family: var(--font-headings); /* Lato */
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-gold); /* #d69e3d */
+  text-transform: uppercase;
+  letter-spacing: 0.22em; /* Wide spacing */
+  margin-bottom: 1rem;
+}
+
+/* Heading Containers wrapping constraint to balance multi-line layout */
+.section-intro h2 {
+  max-width: 650px;
+  margin: 0 auto 35px auto;
+}
+
+/* ==========================================================================
+   BUTTONS (Strictly set to Karla font family)
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body); /* Karla */
+  font-weight: 500; /* Medium slim weight matching mockup */
+  text-transform: uppercase;
+  padding: 15px 38px;
+  font-size: 0.8125rem; /* Clean text sizes */
+  letter-spacing: 2.5px; /* Spacious elegant tracking */
+  border-radius: 0;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--transition-speed) var(--transition-curve),
+              border-color var(--transition-speed) var(--transition-curve),
+              color var(--transition-speed) var(--transition-curve);
+}
+
+.btn-primary {
+  background-color: var(--color-white); /* #ffffff */
+  color: var(--color-black);            /* #000000 */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-gold);  /* #d69e3d */
+  color: var(--color-white);            /* #ffffff */
+}
+
+.btn-dark {
+  background-color: var(--color-black); /* #000000 */
+  color: var(--color-white);            /* #ffffff */
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+  background-color: var(--color-gold);  /* #d69e3d */
+  color: var(--color-white);            /* #ffffff */
+}
+
+.btn-outline {
+  border: 2px solid var(--color-white); /* #ffffff */
+  background-color: transparent;
+  color: var(--color-white);            /* #ffffff */
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background-color: var(--color-white); /* #ffffff */
+  color: var(--color-black);            /* #000000 */
+  border-color: var(--color-white);
+}
+
+/* Fade-In-Up Content Entrance Anim */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION DESIGN
+   ========================================================================== */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 30px 0;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.logo-icon {
+  fill: var(--color-white);
+  transition: color var(--transition-speed) var(--transition-curve);
+}
+
+.logo-text {
+  font-family: var(--font-headings); /* Lato */
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-transform: none; /* Allows natural sentence casing "My Coffee House" */
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Burger Toggle Icon CSS */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.menu-toggle .line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: transform var(--transition-speed) var(--transition-curve),
+              opacity var(--transition-speed) var(--transition-curve);
+  transform-origin: left center;
+}
+
+.menu-toggle[aria-expanded="true"] .line:nth-child(1) {
+  transform: rotate(45deg) translate(2px, -2px);
+}
+
+.menu-toggle[aria-expanded="true"] .line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .line:nth-child(3) {
+  transform: rotate(-45deg) translate(2px, 2px);
+}
+
+/* Mobile Nav Toggle Overlay Layout */
+.main-nav {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.98);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.main-nav.nav-open {
+  max-height: 250px;
+  padding: 24px 0;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list > li > a {
+  font-family: var(--font-headings); /* Lato Navigation */
+  font-size: 0.75rem; /* Elegant smaller size */
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-white);
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-curve);
+}
+
+.nav-list > li > a:hover,
+.nav-list > li > a:focus {
+  color: var(--color-gold); /* #d69e3d */
+}
+
+/* ==========================================================================
+   HERO CONTAINER DESIGN
+   ========================================================================== */
+.hero {
+  position: relative;
+  height: 90vh;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.40); /* Keeps hero text easy to read */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding: 0 24px;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-content p {
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================================================================
+   SECTION 1: EXPERIENCE IMAGE GRID
+   ========================================================================== */
+.experience-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-img {
+  aspect-ratio: 4 / 3;
+}
+
+.sub-thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.thumbnail-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   SECTION 2: VALUES GRID (WHY VISIT US)
+   ========================================================================== */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.value-card {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.icon-container {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 24px auto;
+}
+
+.icon-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.value-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.value-card p {
+  color: #666666;
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   SECTION 3: SPLIT PROMO BANNER (With Hierarchy Buttons)
+   ========================================================================== */
+.promos-split {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-box {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  padding: 60px 24px;
+}
+
+.promo-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 440px;
+}
+
+.promo-inner h2 {
+  max-width: 360px;
+  margin: 0 auto 28px auto;
+}
+
+.promo-menu {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('../images/coffee-shop.jpeg') no-repeat center center/cover;
+}
+
+.promo-locations {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('../images/coffee-shop.jpeg') no-repeat center center/cover;
+}
+
+/* ==========================================================================
+   SECTION 4: OUR STORY SECTION
+   ========================================================================== */
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-image-col img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.about-content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-content-col h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   SECTION 5: TESTIMONIALS SECTION
+   ========================================================================== */
+.testimonials {
+  background-color: var(--color-black); /* #000000 */
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 50px;
+}
+
+/* Signature gold line bottom border on all cards to align with target UI mockup */
+.testimonial-card {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-bottom: 4px solid var(--color-gold); /* Custom bottom gold accent border */
+}
+
+.testimonial-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.testimonial-card:hover .testimonial-bg {
+  transform: scale(1.04);
+}
+
+.testimonial-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 35px;
+  color: var(--color-white);
+}
+
+.testimonial-content {
+  margin: 0;
+}
+
+.testimonial-content p {
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.testimonial-author {
+  display: block;
+  font-family: var(--font-headings); /* Lato */
+  color: var(--color-gold); /* #d69e3d */
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+/* Footer Section */
+.site-footer {
+  background-color: var(--color-black); /* #000000 */
+  color: #777777;
+  padding: 40px 0;
+  border-top: 1px solid #141414;
+}
+
+.site-footer p {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   MEDIA QUERY - TABLET BREAKPOINT (768px min-width)
+   ========================================================================== */
+@media (min-width: 768px) {
+  /* TABLET SPECIFIC TYPESCALES */
+  h1 { font-size: 3rem; }     /* 48px Tablet */
+  h2 { font-size: 2.375rem; }  /* 38px Tablet */
+  h3 { font-size: 1.75rem; }   /* 28px Tablet */
+  p  { font-size: 1rem; }      /* 16px Tablet */
+  
+  /* Hide Hamburg navigation triggers */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Reset Desktop inline layout spacing and flex alignment */
+  .main-nav {
+    display: block;
+    position: static;
+    width: auto;
+    background-color: transparent;
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+    border-bottom: none;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .header-container {
+    padding: 0 24px;
+  }
+
+  /* Flex structure sections for widescreen grids */
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+  
+  .featured-img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  /* Ensure clean centering balance on odd tablet flex elements */
+  .testimonial-grid > .testimonial-card:last-child {
+    grid-column: span 2;
+    justify-self: center;
+    width: calc(50% - 12px);
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERY - DESKTOP BREAKPOINT (1024px min-width)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  /* DESKTOP SPECIFIC TYPESCALES */
+  h1 { font-size: 3.875rem; }  /* 62px Desktop */
+  h2 { font-size: 3rem; }      /* 48px Desktop */
+  h3 { font-size: 2rem; }       /* 32px Desktop */
+  p  { font-size: 1rem; }       /* 16px Desktop */
+  
+  .experience-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .sub-thumbnail-grid {
+    gap: 20px;
+  }
+  
+  /* Split Banner converts to clean side-by-side rows */
+  .promos-split {
+    flex-direction: row;
+  }
+  
+  .promo-box {
+    flex: 1;
+    min-height: 520px;
+  }
+  
+  /* Two-column layout grid */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .about-image-col img {
+    aspect-ratio: 4 / 5;
+  }
+  
+  /* Reset Testimonials back to balanced three column grids */
+  .testimonial-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .testimonial-grid > .testimonial-card:last-child {
+    grid-column: span 1;
+    width: 100%;
+  }
+}
