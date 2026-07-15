@@ -1,6 +1,4 @@
-/* ==========================================================================
-   Main Stylesheet - mtm6201-midterm (Pixel-Perfect Alignment)
-   ========================================================================== */
+
 
 /* 1. CSS Custom Variables & Design Tokens */
 :root {
@@ -36,9 +34,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ==========================================================================
-   RESPONSIVE TYPESCALES & LAYOUT SPECS
-   ========================================================================== */
+
 
 /* Mobile Breakpoint Baseline Rules (Widths < 768px) */
 h1, h2, h3 {
@@ -115,9 +111,7 @@ p {
   margin: 0 auto 35px auto;
 }
 
-/* ==========================================================================
-   BUTTONS (Strictly set to Karla font family)
-   ========================================================================== */
+
 .btn {
   display: inline-block;
   font-family: var(--font-body); /* Karla */
@@ -182,9 +176,7 @@ p {
   }
 }
 
-/* ==========================================================================
-   HEADER & NAVIGATION DESIGN
-   ========================================================================== */
+/*  HEADER & NAVIGATION DESIGN */
 .site-header {
   position: absolute;
   top: 0;
@@ -310,9 +302,7 @@ p {
   color: var(--color-gold); /* #d69e3d */
 }
 
-/* ==========================================================================
-   HERO CONTAINER DESIGN
-   ========================================================================== */
+/*  HERO CONTAINER DESIGN */
 .hero {
   position: relative;
   height: 90vh;
@@ -425,9 +415,7 @@ p {
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   SECTION 3: SPLIT PROMO BANNER (With Hierarchy Buttons)
-   ========================================================================== */
+/*  SECTION 3: SPLIT PROMO BANNER (With Hierarchy Buttons) */
 .promos-split {
   display: flex;
   flex-direction: column;
@@ -463,9 +451,7 @@ p {
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('../images/coffee-shop.jpeg') no-repeat center center/cover;
 }
 
-/* ==========================================================================
-   SECTION 4: OUR STORY SECTION
-   ========================================================================== */
+/*  SECTION 4: OUR STORY SECTION */
 .about-grid {
   display: flex;
   flex-direction: column;
@@ -490,9 +476,7 @@ p {
   margin-bottom: 1.5rem;
 }
 
-/* ==========================================================================
-   SECTION 5: TESTIMONIALS SECTION
-   ========================================================================== */
+/* SECTION 5: TESTIMONIALS SECTION */
 .testimonials {
   background-color: var(--color-black); /* #000000 */
 }
@@ -572,9 +556,7 @@ p {
   text-transform: uppercase;
 }
 
-/* ==========================================================================
-   MEDIA QUERY - TABLET BREAKPOINT (768px min-width)
-   ========================================================================== */
+/*  MEDIA QUERY - TABLET BREAKPOINT (768px min-width) */
 @media (min-width: 768px) {
   /* TABLET SPECIFIC TYPESCALES */
   h1 { font-size: 3rem; }     /* 48px Tablet */
@@ -639,9 +621,7 @@ p {
   }
 }
 
-/* ==========================================================================
-   MEDIA QUERY - DESKTOP BREAKPOINT (1024px min-width)
-   ========================================================================== */
+/*  MEDIA QUERY - DESKTOP BREAKPOINT (1024px min-width) */
 @media (min-width: 1024px) {
   /* DESKTOP SPECIFIC TYPESCALES */
   h1 { font-size: 3.875rem; }  /* 62px Desktop */
