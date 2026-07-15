@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Coffee House - Experience Coffee Like Never Before</title>
+  
+  <!-- Google Fonts Link -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="logo" aria-label="My Coffee House Home">
+        <span class="logo-text">My Coffee House</span>
+      </a>
+      
+      <!-- Accessible Hamburger Menu Button (Phone Screens Only) -->
+      <button class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+      
+      <nav id="main-nav" aria-label="Primary Navigation" class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#about-us" class="nav-link" aria-current="page">About Us</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#locations" class="nav-link">Locations</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-image-container">
+      <img src="images/hero-background.jpg" 
+           srcset="images/hero-background.jpg 1920w, 
+                   images/hero-background.jpg 1200w, 
+                   images/hero-background.jpg 768w" 
+           sizes="100vw" 
+           alt="Barista pouring steamed milk into a cup of espresso" 
+           class="hero-img">
+    </div>
+    <div class="hero-content">
+      <h1 id="hero-heading">Experience Coffee Like Never Before</h1>
+      <p>We craft more than beverages; we curate memories, one flavourful moment at a time. Embrace the aroma and let every visit be a chapter in your coffee story.</p>
+      <a href="#menu" class="btn btn-primary">Explore our menu</a>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+
+    <!-- Section 1: Experience / Intro Grid -->
+    <section class="experience section-padding">
+      <div class="wrapper">
+        <div class="section-intro">
+          <span class="gold-label">Welcome to My Coffee House</span>
+          <h2>Experience A New Way To Taste Coffee</h2>
+        </div>
+        
+        <div class="experience-grid">
+          <!-- Left Column (Large Feature) -->
+          <div class="grid-featured-col">
+            <img src="images/latte.jpeg" alt="Beautiful latte art being poured into a white coffee cup" class="img-fluid featured-img">
+          </div>
+          <!-- Right Column (2x2 Grid) -->
+          <div class="grid-thumbnails-col">
+            <div class="sub-thumbnail-grid">
+              <img src="images/coffee-beans.jpeg" alt="Fresh roasted dark coffee beans in a glass container" class="thumbnail-img">
+              <img src="images/pouring-coffee.jpeg" alt="Steamed milk pouring into rich coffee base" class="thumbnail-img">
+              <img src="images/three-cups.jpeg" alt="Three beautifully decorated hot espresso lattes seen from above" class="thumbnail-img">
+              <img src="images/smiling-employee.jpeg" alt="Smiling barista serving espresso behind a modern counter" class="thumbnail-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Why Visit Us -->
+    <section class="values section-padding">
+      <div class="wrapper">
+        <div class="section-intro text-center">
+          <span class="gold-label">What We Offer</span>
+          <h2>Why Visit Us?</h2>
+        </div>
+        
+        <div class="values-grid">
+          <!-- Card 1 -->
+          <div class="value-card">
+            <div class="icon-container">
+              <img src="images/fair-trade.svg" alt="Fair Trade Coffee" aria-hidden="true">
+            </div>
+            <h3>Fair Trade Coffee</h3>
+            <p>We build direct relationships with the farmers and producers who help in the development of delicious, sustainable and organic coffee.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="value-card">
+            <div class="icon-container">
+              <img src="images/local-baked-goods.svg" alt="Local baked goods" aria-hidden="true">
+            </div>
+            <h3>Local Baked Goods</h3>
+            <p>We use local products to bake our goods and bring in a variety of treats from local bakers with our community.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="value-card">
+            <div class="icon-container">
+              <img src="images/made-with-love.svg" alt="Made With Love" aria-hidden="true">
+            </div>
+            <h3>Made With Love</h3>
+            <p>We value our customers and make it our priority to serve everyone with respect and a friendly smile to start their day off right.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Split Promos (Uses images/coffee-shop.jpeg on both panels) -->
+    <!-- Section 3: Split Promos -->
+    <section class="promos-split">
+      <div class="promo-box promo-menu">
+        <div class="promo-inner">
+          <span class="gold-label">Our Menu</span>
+          <h2>Explore what we have to offer you</h2>
+          <!-- Changed to btn-primary for a solid white button -->
+          <a href="#menu" class="btn btn-primary">Explore our menu</a>
+        </div>
+      </div>
+      <div class="promo-box promo-locations">
+        <div class="promo-inner">
+          <span class="gold-label">Locations</span>
+          <h2>Find your nearest coffee shop</h2>
+          <!-- Kept as btn-outline for a transparent button -->
+          <a href="#locations" class="btn btn-outline">View Locations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Our Story -->
+    <section id="about-us" class="about-story section-padding">
+      <div class="wrapper">
+        <div class="about-grid">
+          <div class="about-image-col">
+            <img src="images/about-us.jpeg" alt="Two experienced baristas pulling a fresh espresso shot on a commercial machine" class="img-fluid rounded-image">
+          </div>
+          <div class="about-content-col">
+            <span class="gold-label">About Us</span>
+            <h2>Read Our Story</h2>
+            <p>In the heart of our community, My Coffee House emerged as a humble local coffee shop that sought to redefine the coffee experience. Founded with a passion for quality brews and a commitment to fostering genuine connections, we embarked on this journey with a vision to create a warm and inviting space for coffee enthusiasts and casual patrons alike.</p>
+            <p>My Coffee House quickly became a cherished gathering spot, where the rich aroma of freshly ground coffee beans mingled with the laughter of friends and the tapping of keyboards from those seeking a cozy workspace.</p>
+            <a href="#learn-more" class="btn btn-dark">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Testimonials -->
+    <section class="testimonials section-padding">
+      <div class="wrapper">
+        <div class="section-intro text-center">
+          <span class="gold-label">Testimonials</span>
+          <h2 class="text-white">What Our Customers Say About Us</h2>
+        </div>
+        
+        <div class="testimonial-grid">
+          <!-- Card 1 -->
+          <div class="testimonial-card">
+            <img src="images/testimonial-1.jpeg" alt="jane picture" class="testimonial-bg">
+            <div class="testimonial-overlay">
+              <blockquote class="testimonial-content">
+                <p>"I always make a point to visit My Coffee House when in Ottawa. Delicious coffee and friendly service."</p>
+                <cite class="testimonial-author">Jane D., Toronto</cite>
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card">
+            <img src="images/testimonial-2.jpeg" alt="scot picture" class="testimonial-bg">
+            <div class="testimonial-overlay">
+              <blockquote class="testimonial-content">
+                <p>"Great atmosphere to get some work done while enjoying a cup or two of incredible coffee."</p>
+                <cite class="testimonial-author">Scott S., Ottawa</cite>
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card">
+            <img src="images/testimonial-3.jpeg" alt="Susie picture" class="testimonial-bg">
+            <div class="testimonial-overlay">
+              <blockquote class="testimonial-content">
+                <p>"Best coffee in Ottawa and the service is top notch. Would highly recommend a visit."</p>
+                <cite class="testimonial-author">Susie F., Ottawa</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="wrapper text-center">
+      <p>&copy; My Coffee House 2026</p>
+    </div>
+  </footer>
+
+  <!-- Clean, robust Javascript for Mobile Navigation Toggle -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      
+      // Update ARIA expanded state
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      
+      // Toggle dropdown classes
+      mainNav.classList.toggle('nav-open');
+    });
+
+    // Automatically close dropdown when clicking anywhere else
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('nav-open');
+      }
+    });
+  </script>
+
+</body>
+</html>
